@@ -100,16 +100,16 @@ int main(){
         }
         else if(choice=='2'){
             if(!(B[i].search(i,B,2)))//if there is no book as given, the function will return false
-                cout<<"Book not found\n";
+                cout<<"No such book found\n";
             // !false = true | since "Book not found will be printed"
         }
         else if(choice=='3'){
             if(!(B[i].search(i,B,3)))
-                cout<<"Book not found\n";
+                cout<<"No such book found\n";
         }
         else if(choice=='4'){
             if(!(B[i].search(i,B,4)))
-                cout<<"Book not found\n";
+                cout<<"No such book found\n";
         }
         else if(choice!='5'){
             cout<<"Enter a valid choice\n";
