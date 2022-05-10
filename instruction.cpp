@@ -8,7 +8,7 @@ int main(){
     cout<<"\t-Author\n";
     cout<<"\t-Price\n";
     cout<<"\t-Piece\n\n";
-    cout<<"Then you can buy anyone of them or change their details.\n\n";
+    cout<<"Then you can buy anyone of them or change their details.\n\n\n";
     cout<<"If the entered title and Author name is wrong then,\n";
     cout<<"It will go back to the menu and ask again for your choice.\n\n";
     cout<<"Thanks for using.\n";
