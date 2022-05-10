@@ -8,14 +8,13 @@ private:
     float price;
     int stock;
 public:
-    // void setData();
     void setData( Book*,int);
     void getData( Book*,int);
     void buy( Book*,int);
     bool search(int, Book*, int);
 };
 
-void Book :: setData(Book b[],int j){
+void Book :: setData(Book b[],int j){//j is the index number of the object
     cout<<"Enter book title     : ";
     getline(cin,b[j].title);
     cout<<"Enter Author name    : ";
@@ -24,7 +23,7 @@ void Book :: setData(Book b[],int j){
     cin>>b[j].stock;
     cout<<"Enter price : ";
     cin>>b[j].price;
-    cin.ignore();
+    cin.ignore();//every time after entering an integer, have to ignore the ENTER
 }
 void Book :: getData(Book b[],int j){
     cout<<"Title  : "<<b[j].title<<endl;
