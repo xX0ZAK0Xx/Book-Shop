@@ -99,8 +99,9 @@ int main(){
             i++;
         }
         else if(choice=='2'){
-            if(!(B[i].search(i,B,2)))
+            if(!(B[i].search(i,B,2)))//if there is no book as given, the function will return false
                 cout<<"Book not found\n";
+            // !false = true | since "Book not found will be printed"
         }
         else if(choice=='3'){
             if(!(B[i].search(i,B,3)))
