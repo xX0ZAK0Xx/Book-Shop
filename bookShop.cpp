@@ -91,27 +91,36 @@ int main(){
         menu();
         cout<<"Enter your choice: ";
         cin>>choice; cin.ignore();
+        system("cls");
 
         if(choice=='1'){
             B[i].setData(B,i);
             cout<<"Press ENTER to continue\n";
             cin.ignore();
             i++;
+            system("cls");
         }
         else if(choice=='2'){
-            if(!(B[i].search(i,B,2)))//if there is no book as given, the function will return false
+            if(!(B[i].search(i,B,2))){//if there is no book as given, the function will return false
+                system("cls");
                 cout<<"No such book found\n";
             // !false = true | since "Book not found will be printed"
+            }
         }
         else if(choice=='3'){
-            if(!(B[i].search(i,B,3)))
+            if(!(B[i].search(i,B,3))){
+                system("cls");
                 cout<<"No such book found\n";
+            }
         }
         else if(choice=='4'){
-            if(!(B[i].search(i,B,4)))
+            if(!(B[i].search(i,B,4))){
+                system("cls");
                 cout<<"No such book found\n";
+            }
         }
         else if(choice!='5'){
+            system("cls");
             cout<<"Enter a valid choice\n";
         }
     }while(choice!='5');    
