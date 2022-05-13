@@ -14,6 +14,53 @@ public:
     bool search(int, Book*, int);
 };
 
+bool isNumberString(const string& s) {
+    int len = s.length();
+    for (int i = 0; i < len; i++) {
+        if (s[i] < '0' || s[i] > '9')
+            return false;
+    }
+    return true;
+}
+
+bool creditCard(){
+    string card;
+    enterCard:
+    cout<<"Enter 0 if you want to cancel your transaction or,\n";
+    cout<<"Enter your card number: ";
+    getline(cin,card);
+    if(card == "0"){
+        return false;
+    }
+    else if ((!isNumberString(card)) || (card.length() != 16) || card[0]!='4') {
+        cout << "Invalid Card\n\n";
+        goto enterCard;
+    }
+
+    int size = card.length();
+    int doubleEvenSum = 0;
+
+    for( int i = size-2 ; i >=0 ; i-=2 ) {
+        int sum = (card[i] - 48)*2;
+        if(sum>9){
+            sum = (sum/10) + (sum%10);
+        }
+        doubleEvenSum += sum;
+    }
+
+    for( int i=size-1 ; i >=0 ; i-=2 ) {
+        doubleEvenSum += card[i]-48;
+    }
+
+    if(doubleEvenSum%10==0) {
+        return true;
+    }
+    else{
+        cout<<"Invalid Card\n\n";
+        goto enterCard;
+    }
+}
+
 void Book :: setData(Book b[],int j){//j is the index number of the object
     cout<<"Enter book title     : ";
     getline(cin,b[j].title);
@@ -37,8 +84,12 @@ void Book :: buy(Book b[],int j){
     cin>>piece;
     cin.ignore();
     if(b[j].stock >= piece){
-        b[j].stock-=piece;
         cout<<"Total price: "<<piece*b[j].price<<"\n";
+        if(creditCard()){
+            cout<<"Thanks for your purchase\n";
+            b[j].stock-=piece;
+        }
+        cout<<"We wish you visit us again\n";
     }
     else{
         cout<<"Sorry, not enough in stock\n";
@@ -57,7 +108,7 @@ bool Book :: search(int i,Book b[], int call){
         if( b[j].author==bAuth && b[j].title==bTitle){
             if(call==2){
                 buy(b,j);
-                cout<<"Thanks for your purchase\nPress ENTER to continue\n";
+                cout<<"Press ENTER to continue\n";
                 cin.ignore();
             }
             else if(call==3){
