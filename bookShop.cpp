@@ -11,7 +11,7 @@ public:
     void setData( Book*,int);
     void getData( Book*,int);
     void buy( Book*,int);
-    bool search(int, Book*, int);
+    bool search(int, Book*, char);
 };
 
 bool isNumberString(const string& s) {
@@ -95,7 +95,7 @@ void Book :: buy(Book b[],int j){
         cout<<"Sorry, not enough in stock\n";
     }
 }
-bool Book :: search(int i,Book b[], int call){
+bool Book :: search(int i,Book b[], char call){
     char bTitle[20], bAuth[30];
     cout<<"Enter the Title of the book  : ";
     cin.getline(bTitle,20);
@@ -106,17 +106,17 @@ bool Book :: search(int i,Book b[], int call){
 
     for( int j=0 ; j<i ; j++ ){
         if( b[j].author==bAuth && b[j].title==bTitle){
-            if(call==2){
+            if(call=='2'){
                 buy(b,j);
                 cout<<"Press ENTER to continue\n";
                 cin.ignore();
             }
-            else if(call==3){
+            else if(call=='3'){
                 getData(b,j);
                 cout<<"Press ENTER to continue\n";
                 cin.ignore();
             }
-            else if(call==4){
+            else if(call=='4'){
                 setData(b,j);
                 cout<<"Press ENTER to continue\n";
                 cin.ignore();
@@ -151,23 +151,11 @@ int main(){
             i++;
             system("cls");
         }
-        else if(choice=='2'){
-            if(!(B[i].search(i,B,2))){//if there is no book as given, the function will return false
+        else if(choice=='2' || choice=='3' || choice=='4'){
+            if(!(B[i].search(i,B,choice))){//if there is no book as given, the function will return false
                 system("cls");
                 cout<<"No such book found\n";
-            // !false = true | since "Book not found will be printed"
-            }
-        }
-        else if(choice=='3'){
-            if(!(B[i].search(i,B,3))){
-                system("cls");
-                cout<<"No such book found\n";
-            }
-        }
-        else if(choice=='4'){
-            if(!(B[i].search(i,B,4))){
-                system("cls");
-                cout<<"No such book found\n";
+            // !false = true | since "Book not found" will be printed
             }
         }
         else if(choice!='5'){
