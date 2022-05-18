@@ -1,5 +1,9 @@
 #include <iostream>
 #include <string.h>
+// #include <string>
+#include "string"
+//the both will include the string library
+
 using  namespace std;
 
 class Book{
