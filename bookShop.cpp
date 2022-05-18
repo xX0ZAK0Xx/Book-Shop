@@ -5,7 +5,7 @@ using  namespace std;
 class Book{
 private:
     string title, author;
-    float price;
+    double price;
     int stock;
 public:
     void setData( Book*,int);
